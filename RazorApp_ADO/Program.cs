@@ -5,6 +5,10 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+// Set the DataDirectory to the App_Data folder
+var dataDirectory = Path.Combine(builder.Environment.ContentRootPath, "App_Data");
+AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
